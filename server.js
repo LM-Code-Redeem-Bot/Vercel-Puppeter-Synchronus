@@ -13,9 +13,9 @@ app.get("/:id/:code", async (request, response) => {
     ignoreHTTPSErrors: true,
     ignoreDefaultArgs: ['--disable-extensions'],
   }).then(browser => {
-  browser.newPage()
-      .then(page => { 
-          page.goto('https://lordsmobile.igg.com/gifts/')
+//   browser.newPage()
+//       .then(page => { 
+//           page.goto('https://lordsmobile.igg.com/gifts/')
 //           page.type('#iggid', request.params.id)
 //           page.type('#cdkey_1', request.params.code)
 //           page.click('#btn_claim_1')
@@ -23,7 +23,10 @@ app.get("/:id/:code", async (request, response) => {
 //           page.click('#btn_msg_close')
 //           .then(buffer => browser.close());
 //     });
-      .then(resp => page.screenshot({path: 'example.png'}))
+       browser.newPage()
+    .then(page => {
+      page.goto('https://lordsmobile.igg.com/gifts/')
+        .then(resp => page.screenshot({path: 'example.png'}))
         .then(buffer => browser.close());
     });
 }); 
