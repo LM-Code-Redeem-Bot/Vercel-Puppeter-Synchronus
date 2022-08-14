@@ -14,13 +14,14 @@ app.get("/:id/:code", async (request, response) => {
     ignoreDefaultArgs: ['--disable-extensions'],
   }).then(browser => {
   browser.newPage()
-      .then(page => page.goto('https://lordsmobile.igg.com/gifts/'))
+      .then(page => { page.goto('https://lordsmobile.igg.com/gifts/')
       .then(page => page.type('#iggid', request.params.id))
       .then(page => page.type('#cdkey_1', request.params.code))
       .then(page => page.click('#btn_claim_1'))
       .then(response => page.screenshot({fullPage : true}))
       .then(page => page.click('#btn_msg_close'))
       .then(buffer => browser.close());
+    });
 }); 
   } catch (error) {
     console.log(error);
