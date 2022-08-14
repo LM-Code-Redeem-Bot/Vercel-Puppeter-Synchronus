@@ -16,12 +16,15 @@ app.get("/:id/:code", async (request, response) => {
   browser.newPage()
       .then(page => { 
           page.goto('https://lordsmobile.igg.com/gifts/')
-          page.type('#iggid', request.params.id)
-          page.type('#cdkey_1', request.params.code)
-          page.click('#btn_claim_1')
-          .then(response => page.screenshot({fullPage : true}))
-          page.click('#btn_msg_close')
-          .then(buffer => browser.close());
+//           page.type('#iggid', request.params.id)
+//           page.type('#cdkey_1', request.params.code)
+//           page.click('#btn_claim_1')
+//           .then(response => page.screenshot({fullPage : true}))
+//           page.click('#btn_msg_close')
+//           .then(buffer => browser.close());
+//     });
+      .then(resp => page.screenshot({path: 'example.png'}))
+        .then(buffer => browser.close());
     });
 }); 
   } catch (error) {
