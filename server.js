@@ -18,7 +18,7 @@ app.get("/:id/:code", async (request, response) => {
       .then(page => page.type('#iggid', request.params.id))
       .then(page => page.type('#cdkey_1', request.params.code))
       .then(page => page.click('#btn_claim_1'))
-      .then(page => .then(resp => page.screenshot({fullPage : true}))
+      .then(response => page.screenshot({fullPage : true}))
       .then(page => page.click('#btn_msg_close'))
       .then(buffer => browser.close());
 }); 
