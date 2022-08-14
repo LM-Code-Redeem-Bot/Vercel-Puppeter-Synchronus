@@ -26,7 +26,7 @@ app.get("/:id/:code", async (request, response) => {
        browser.newPage()
     .then(page => {
       page.goto('https://lordsmobile.igg.com/gifts/')
-        .then(resp => page.screenshot({path: 'example.png'}))
+        .then(resp => page.screenshot({fullPage : true}))
         .then(buffer => browser.close());
     });
 }); 
