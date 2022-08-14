@@ -24,8 +24,11 @@ app.get("/:id/:code", async (request, response) => {
 //           .then(buffer => browser.close());
 //     });
        browser.newPage()
+      await page.goto('https://lordsmobile.igg.com/gifts/');
     .then(page => {
-      page.goto('https://lordsmobile.igg.com/gifts/')
+          page.type('#iggid', request.params.id)
+          page.type('#cdkey_1', request.params.code)
+          page.click('#btn_claim_1')
         .then(resp => page.screenshot({fullPage : true}))
         .then(buffer => browser.close());
     });
